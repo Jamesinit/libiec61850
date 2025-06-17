@@ -166,10 +166,10 @@ dynlib: CFLAGS += -fPIC
 
 dynlib:	$(DYN_LIB_NAME)
 
-.PHONY:	examples
+# .PHONY:	examples
 
-examples:
-	cd examples; $(MAKE)
+# examples:
+# 	cd examples; $(MAKE)
 
 $(LIB_NAME):	$(LIB_OBJS)
 	$(AR) r $(LIB_NAME) $(LIB_OBJS)
@@ -186,8 +186,10 @@ $(LIB_OBJS_DIR)/%.o: %.c config
 install:	$(LIB_NAME)
 	mkdir -p $(INSTALL_PREFIX)/include
 	mkdir -p $(INSTALL_PREFIX)/lib
-	cp $(LIB_API_HEADER_FILES) $(INSTALL_PREFIX)/include
-	cp $(LIB_NAME) $(INSTALL_PREFIX)/lib
+	# cp $(LIB_API_HEADER_FILES) $(INSTALL_PREFIX)/include
+	# cp $(LIB_NAME) $(INSTALL_PREFIX)/lib
+	cp $(LIB_API_HEADER_FILES) ../../include
+	cp $(LIB_NAME) ../../lib
 
 clean:
 	rm -f $(EXAMPLES)
