@@ -1273,7 +1273,8 @@ static inline void
 checkForChangedTriggers(IedServer self, DataAttribute* dataAttribute)
 {
 #if (CONFIG_IEC61850_REPORT_SERVICE == 1) || (CONFIG_INCLUDE_GOOSE_SUPPORT == 1)
-    if (dataAttribute->triggerOptions & TRG_OPT_DATA_CHANGED) {
+    // if (dataAttribute->triggerOptions & TRG_OPT_DATA_CHANGED) {
+    if ( TRG_OPT_DATA_CHANGED) {
 
 #if (CONFIG_IEC61850_L2_GOOSE == 1 || CONFIG_IEC61850_R_GOOSE == 1)
         MmsMapping_triggerGooseObservers(self->mmsMapping, dataAttribute->mmsValue);
